@@ -20,7 +20,7 @@ export default class RegistrationForm extends React.Component {
                             <label>Confirm Password: </label>
                             <input type="text" required />
                         </div>
-                        <button>Register</button>
+                        <button type="submit">Register</button>
                     </form>
                 </fieldset>
             </section>

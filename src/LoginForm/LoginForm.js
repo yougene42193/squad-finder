@@ -8,7 +8,15 @@ export default class LoginForm extends React.Component {
                 <fieldset>
                     <form className="register-section">
                         <h2 className="register">Log In</h2>
-                        <div className="username"></div>
+                        <div className="username">
+                            <label>Username: </label>
+                            <input type="text" required />
+                        </div>
+                        <div className="password">
+                            <label>Password: </label>
+                            <input type="text" required />
+                        </div>
+                        <button type="submit">Log in</button>
                     </form>
                 </fieldset>
             </section>
