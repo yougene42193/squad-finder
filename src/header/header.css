@@ -1,0 +1,15 @@
+li {
+    display: inline;
+    list-style: none;
+    margin-left: 15px;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    text-align: right;
+    padding-right: 15px;
+}
