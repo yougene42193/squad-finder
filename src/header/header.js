@@ -1,15 +1,47 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import TokenService from '../services/token-service'
 import './header.css'
 
 export default class Header extends React.Component {
+    handleLogoutClick = () => {
+
+    }
+
+    renderLogoutLink() {
+        return (
+            <div className='header-logged-in'>
+                <li><Link to='/profile'>Profile</Link></li>
+                <li><Link to='/favorites'>Favorites</Link></li>
+                <li><Link
+                    onClick={this.handleLogoutClick}
+                    to='/register'>
+                    Logout
+                </Link></li>
+            </div>
+        )
+    }
+
+    renderLoginLink() {
+        return (
+            <div className='header-not-logged-in'>
+                <Link
+                    to='/login'>
+                    Log in    
+                </Link>
+            </div>
+        )
+    }
+
     render() {
         return (
             <section className="header">
                 <nav role="navigation">
-                    <li><Link to='/profile'>Profile</Link></li>
-                    <li><Link to='/favorites'>Favorites</Link></li>
-                    <li><Link to='/register'>Logout</Link></li>
+                    {/* Swap the render Links when complete */}
+                    {TokenService.hasAuthToken()
+                        
+                        ? this.renderLogoutLink()
+                        : this.renderLoginLink()}
                 </nav>
                 <header>
                     <h1><Link to='/'>Squad Finder</Link></h1>

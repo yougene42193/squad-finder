@@ -1,26 +1,77 @@
 import React from 'react';
+import { Button, Input } from '../utils/utils'
 import './RegistrationForm.css'
 
+
+const matches = field => (value, allValues) =>
+  field in allValues && value.trim() === allValues[field].trim()
+    ? undefined
+    : 'Does not match';
+
+const matchPassword = matches('password')
+
 export default class RegistrationForm extends React.Component {
+    static defaultProps = {
+        onRegistrationSuccess: () => {}
+    }
+
+    state = { error: null }
+
+    handleSubmit = e => {
+        e.preventDefault()
+        const { user_name, password, matchPassword } = e.target
+
+        console.log('registration form submit')
+        console.log({ user_name, password })
+
+        user_name.value = ''
+        password.value = ''
+        matchPassword.value = ''
+        this.props.onRegistrationSuccess()
+    }
+
     render() {
+        const { error } = this.state
         return (
             <section className="register-form">
                 <fieldset>
-                    <form className="register-section">
+                    <form 
+                        className="register-section"
+                        onSubmit={this.handleSubmit}
+                        >
                         <h2 className="register">Register</h2>
+                        <div role='alert'>
+                            {error && <p className='red'>{error}</p>}
+                        </div>
                         <div className="username">
-                            <label>Username: </label>
-                            <input type="text" required />
+                            <label htmlFor='register-username'>Username: </label>
+                            <Input 
+                                name='user_name'
+                                type="text" 
+                                required
+                                id='register-username'>
+                            </Input>
                         </div>
                         <div className="password">
-                            <label>Password: </label>
-                            <input type="text" required />
+                            <label htmlFor='register-password'>Password: </label>
+                            <Input 
+                                name='password'
+                                type="text" 
+                                required
+                                id='register-password'>
+                            </Input>
                         </div>
                         <div className="confirm-password">
-                            <label>Confirm Password: </label>
-                            <input type="text" required />
+                            <label htmlFor='register-confirm'>Confirm Password: </label>
+                            <Input 
+                                name='matchPassword'
+                                type="text" 
+                                required
+                                id='confirm-password'
+                                validate={[ matchPassword ]}>
+                            </Input>
                         </div>
-                        <button type="submit">Register</button>
+                        <Button type="submit">Register</Button>
                     </form>
                 </fieldset>
             </section>
