@@ -39,7 +39,6 @@ export default class RegistrationForm extends React.Component {
                         className="register-section"
                         onSubmit={this.handleSubmit}
                         >
-                        <h2 className="register">Register</h2>
                         <div role='alert'>
                             {error && <p className='red'>{error}</p>}
                         </div>

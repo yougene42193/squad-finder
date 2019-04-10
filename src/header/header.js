@@ -25,10 +25,14 @@ export default class Header extends React.Component {
     renderLoginLink() {
         return (
             <div className='header-not-logged-in'>
-                <Link
+                <li><Link
+                    to='/register'>
+                    Register    
+                </Link></li>
+                <li><Link
                     to='/login'>
                     Log in    
-                </Link>
+                </Link></li>
             </div>
         )
     }
@@ -39,7 +43,6 @@ export default class Header extends React.Component {
                 <nav role="navigation">
                     {/* Swap the render Links when complete */}
                     {TokenService.hasAuthToken()
-                        
                         ? this.renderLogoutLink()
                         : this.renderLoginLink()}
                 </nav>

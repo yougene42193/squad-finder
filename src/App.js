@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import './App.css'
 import Header from './header/header'
 import RegistrationRoutes from './routes/RegistrationRoutes';
-import LoginForm from './LoginForm/LoginForm'
+import LoginRoutes from './routes/LoginRoutes'
 import ProfilePage from './ProfilePage/ProfilePage'
 import PlayerList from './PlayerList/PlayerList'
 import FavoritesList from './FavoritesList/FavoritesList'
@@ -26,7 +26,7 @@ class App extends Component {
             />
             <Route 
               path='/login'
-              component={LoginForm}
+              component={LoginRoutes}
             />
             <Route 
               path='/profile'
