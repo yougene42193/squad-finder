@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import './header.css'
 
 export default class Header extends React.Component {
@@ -6,12 +7,12 @@ export default class Header extends React.Component {
         return (
             <section className="header">
                 <nav role="navigation">
-                    <li><a href='#'>Profile</a></li>
-                    <li><a href='#'>Favorites</a></li>
-                    <li><a href='#'>Logout</a></li>
+                    <li><Link to='/profile'>Profile</Link></li>
+                    <li><Link to='/favorites'>Favorites</Link></li>
+                    <li><Link to='/register'>Logout</Link></li>
                 </nav>
                 <header>
-                    <h1>Squad Finder</h1>
+                    <h1><Link to='/'>Squad Finder</Link></h1>
                 </header>
             </section>
         )
