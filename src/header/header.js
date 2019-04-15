@@ -5,7 +5,7 @@ import './header.css'
 
 export default class Header extends React.Component {
     handleLogoutClick = () => {
-
+        window.reload();
     }
 
     renderLogoutLink() {

@@ -67,7 +67,7 @@ export default class ProfilePage extends React.Component {
                     <form className="profile-form">
                         <h2 className="profile">Profile</h2>
                         <div className="username">
-                            <label>Username: </label>
+                            <label>Profile Name: </label>
                             <input type="text" value={this.state.username} onChange={this.handleUserChange} required />
                         </div>
                         <div className="platform">
@@ -84,7 +84,7 @@ export default class ProfilePage extends React.Component {
                             <select value={this.state.game} onChange={this.handleGameChange} required>
                                 <option value=''>-Select Game-</option>
                                 <option value='AL'>Apex Legends</option>
-                                <option value='COD'>COD: Blackout</option>
+                                <option value='COD'>COD Blackout</option>
                                 <option value='FN'>Fornite</option>
                                 <option value='PUBG '>PUBG</option>
                             </select>

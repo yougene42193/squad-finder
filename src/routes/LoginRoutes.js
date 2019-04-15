@@ -10,10 +10,11 @@ export default class LoginRoutes extends Component {
         }
     }
 
-    handleLoginSucces = () => {
+    handleLoginSuccess = () => {
         const { location, history } = this.props
         const destination = (location.state || {}).form || '/'
         history.push(destination)
+        window.location.reload();
     }
 
     render() {
@@ -21,7 +22,7 @@ export default class LoginRoutes extends Component {
             <Section className='LoginPage'>
                 <h2>Login</h2>
                 <LoginForm
-                    onLoginSuccess={this.handleLoginSucces}
+                    onLoginSuccess={this.handleLoginSuccess}
                 />
             </Section>
         )

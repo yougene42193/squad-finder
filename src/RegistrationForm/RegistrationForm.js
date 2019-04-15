@@ -3,12 +3,12 @@ import { Button, Input } from '../utils/utils'
 import './RegistrationForm.css'
 
 
-const matches = field => (value, allValues) =>
+/*const matches = field => (value, allValues) =>
   field in allValues && value.trim() === allValues[field].trim()
     ? undefined
-    : 'Does not match';
+    : 'Does not match';*/
 
-const matchPassword = matches('password')
+//const matchPassword = matches('password')
 
 export default class RegistrationForm extends React.Component {
     static defaultProps = {
@@ -19,14 +19,14 @@ export default class RegistrationForm extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        const { user_name, password, matchPassword } = e.target
+        const { user_name, password } = e.target
 
         console.log('registration form submit')
         console.log({ user_name, password })
 
         user_name.value = ''
         password.value = ''
-        matchPassword.value = ''
+        //matchPassword.value = ''
         this.props.onRegistrationSuccess()
     }
 
@@ -60,7 +60,7 @@ export default class RegistrationForm extends React.Component {
                                 id='register-password'>
                             </Input>
                         </div>
-                        <div className="confirm-password">
+                        {/*<div className="confirm-password">
                             <label htmlFor='register-confirm'>Confirm Password: </label>
                             <Input 
                                 name='matchPassword'
@@ -69,7 +69,7 @@ export default class RegistrationForm extends React.Component {
                                 id='confirm-password'
                                 validate={[ matchPassword ]}>
                             </Input>
-                        </div>
+                        </div>*/}
                         <Button type="submit">Register</Button>
                     </form>
                 </fieldset>

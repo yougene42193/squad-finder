@@ -16,7 +16,7 @@ export default class PlayerList extends React.Component {
                     <select className="games">
                         <option>-Filter Games-</option>
                         <option>Apex Legends</option>
-                        <option>COD: Blackout</option>
+                        <option>COD Blackout</option>
                         <option>Fortnite</option>
                         <option>PUBG</option>
                     </select>
@@ -70,7 +70,7 @@ export default class PlayerList extends React.Component {
                             <tr class='list-item'>
                                 <td>PS4player1</td>
                                 <td>Playstation 4</td>
-                                <td>COD: Blackout</td>
+                                <td>COD Blackout</td>
                                 <td>NA</td>
                                 <td>Casual</td>
                                 <td><button class='add-button'>Add</button></td>
