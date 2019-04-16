@@ -29,16 +29,7 @@ const ApiService = {
             )
     },
     /*  Get user favorites list */
-    getFavorites(userId) {
-        return fetch(`${/* add api */}`, {
-            headers: {
-                'authorization': `basic ${TokenService.getAuthToken()}`,
-            },
-        })
-            .then(res => 
-                (!res.ok)
-                    ? res.json().then(e => Promise.reject(e))
-                    : res.json()    
-            )
-    },
+   
 }
+
+export default ApiService

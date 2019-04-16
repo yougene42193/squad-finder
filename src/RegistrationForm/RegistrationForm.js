@@ -39,7 +39,7 @@ export default class RegistrationForm extends React.Component {
                         onSubmit={this.handleSubmit}
                         >
                         <div role='alert'>
-                            {error && <p className='red'>{error}</p>}
+                            {error && <p className="error-msg">{error}</p>}
                         </div>
                         <div className="username">
                             <label htmlFor='register-username'>Username: </label>

@@ -33,7 +33,7 @@ export default class LoginForm extends React.Component {
                         onSubmit={this.handleSubmitBasicAuth}
                     >
                         <div role='alert'>
-                            {error && <p className='red'>{error}</p>}
+                            {error && <p className='error-msg'>{error}</p>}
                         </div>
                         <div className="username">
                             <label htmlFor='login-username'>Username: </label>
