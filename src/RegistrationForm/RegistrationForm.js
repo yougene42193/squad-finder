@@ -1,14 +1,7 @@
 import React from 'react';
 import { Button, Input } from '../utils/utils'
+import AuthApiService from '../services/auth-api-service'
 import './RegistrationForm.css'
-
-
-/*const matches = field => (value, allValues) =>
-  field in allValues && value.trim() === allValues[field].trim()
-    ? undefined
-    : 'Does not match';*/
-
-//const matchPassword = matches('password')
 
 export default class RegistrationForm extends React.Component {
     static defaultProps = {
@@ -21,13 +14,19 @@ export default class RegistrationForm extends React.Component {
         e.preventDefault()
         const { user_name, password } = e.target
 
-        console.log('registration form submit')
-        console.log({ user_name, password })
-
-        user_name.value = ''
-        password.value = ''
-        //matchPassword.value = ''
-        this.props.onRegistrationSuccess()
+        this.setState({ error: null })
+        AuthApiService.postUser({
+            user_name: user_name.value,
+            password: password.value,
+        })
+            .then(user => {
+                user_name.value = ''
+                password.value = ''
+                this.props.onRegistrationSuccess()
+            })
+            .catch(res => {
+                this.setState({ error: res.error })
+            })  
     }
 
     render() {
@@ -55,21 +54,11 @@ export default class RegistrationForm extends React.Component {
                             <label htmlFor='register-password'>Password: </label>
                             <Input 
                                 name='password'
-                                type="text" 
+                                type="password" 
                                 required
                                 id='register-password'>
                             </Input>
                         </div>
-                        {/*<div className="confirm-password">
-                            <label htmlFor='register-confirm'>Confirm Password: </label>
-                            <Input 
-                                name='matchPassword'
-                                type="text" 
-                                required
-                                id='confirm-password'
-                                validate={[ matchPassword ]}>
-                            </Input>
-                        </div>*/}
                         <Button type="submit">Register</Button>
                     </form>
                 </fieldset>

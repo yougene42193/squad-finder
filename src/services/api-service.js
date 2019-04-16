@@ -4,7 +4,7 @@ import config from '../config';
 const ApiService = {
     /* Get player list */
     getUsers() {
-        return fetch(`${/* add api */}`, {
+        return fetch(`${config.API_ENDPOINT}/profiles`, {
             headers: {
                 'authorization': `basic ${TokenService.getAuthToken()}`,
             },
@@ -17,7 +17,7 @@ const ApiService = {
     },
     /* get user */
     getUser(userId) {
-        return fetch(`${/* add api */}`, {
+        return fetch(`${config.API_ENDPOINT}/profiles/${userId}`, {
             headers: {
                 'authorization': `basic ${TokenService.getAuthToken()}`,
             },
