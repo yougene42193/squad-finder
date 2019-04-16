@@ -6,7 +6,7 @@ const ApiService = {
     getUsers() {
         return fetch(`${config.API_ENDPOINT}/profiles`, {
             headers: {
-                'authorization': `basic ${TokenService.getAuthToken()}`,
+                'authorization': `bearer ${TokenService.getAuthToken()}`,
             },
         })
         .then(res =>
@@ -19,7 +19,7 @@ const ApiService = {
     getUser(userId) {
         return fetch(`${config.API_ENDPOINT}/profiles/${userId}`, {
             headers: {
-                'authorization': `basic ${TokenService.getAuthToken()}`,
+                'authorization': `bearer ${TokenService.getAuthToken()}`,
             },
         })
             .then(res => 
@@ -28,8 +28,21 @@ const ApiService = {
                     : res.json()
             )
     },
-    /*  Get user favorites list */
-   
+    /*  Post user to list */
+   postUser(user) {
+       return fetch(`${config.API_ENDPOINT}/profiles`, {
+           method: 'POST',
+           headers: {
+                'content-type': 'application/json',
+           },
+           body: JSON.stringify(user)
+        })
+            .then(res =>
+                (!res.ok)
+                ? res.json().then(e => Promise.reject(e))
+                : res.json()
+            )
+   }
 }
 
 export default ApiService

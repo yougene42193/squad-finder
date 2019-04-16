@@ -2,6 +2,7 @@ import React from 'react';
 import './LoginForm.css';
 import TokenService from '../services/token-service'
 import { Button, Input } from '../utils/utils'
+import AuthApiService from '../services/auth-api-service';
 
 export default class LoginForm extends React.Component {
     static defaultProps = {
@@ -10,17 +11,25 @@ export default class LoginForm extends React.Component {
 
     state = { error: null }
 
-    handleSubmitBasicAuth = e => {
+    handleSubmitJwtAuth = e => {
         e.preventDefault()
+        this.setState({ error: null })
         const { user_name, password } = e.target
 
-        TokenService.saveAuthToken(
-            TokenService.makeBasicAuthToken(user_name.value, password.value)
-        )
-
-        user_name.value = ''
-        password.value = ''
-        this.props.onLoginSuccess()
+        AuthApiService.postLogin({
+            user_name: user_name.value,
+            password: password.value,
+        })
+            .then(res => {
+                user_name.value = ''
+                password.value = ''
+                TokenService.saveAuthToken(res.authToken)
+                this.props.onLoginSuccess()
+            })
+            .catch(res => {
+                this.setState({ error: res.error })
+            })
+        
     }
 
     render() {
@@ -29,11 +38,11 @@ export default class LoginForm extends React.Component {
             <section className="login-form">
                 <fieldset>
                     <form 
-                        className="register-section"
-                        onSubmit={this.handleSubmitBasicAuth}
+                        className="login-section"
+                        onSubmit={this.handleSubmitJwtAuth}
                     >
                         <div role='alert'>
-                            {error && <p className='error-msg'>{error}</p>}
+                            {error && <p className='error-msg'>Incorrect username or password</p>}
                         </div>
                         <div className="username">
                             <label htmlFor='login-username'>Username: </label>

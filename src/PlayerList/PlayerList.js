@@ -37,17 +37,21 @@ export default class PlayerList extends React.Component {
                     <h2>List</h2>
                     <div className="list-container">
                         <table>
-                            <tr>
-                                <th>Username</th>
-                                <th>Platform</th>
-                                <th>Game</th>
-                                <th>Region</th>
-                                <th>Playstyle</th>
-                                <th> </th>
-                            </tr>
-                            {error
-                                ? <p className="error-msg">There was an error, try again</p>
-                                : this.renderPlayers()}
+                            <thead>
+                                <tr>
+                                    <th>Username</th>
+                                    <th>Platform</th>
+                                    <th>Game</th>
+                                    <th>Region</th>
+                                    <th>Playstyle</th>
+                                    <th> </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {error
+                                    ? <p className="error-msg">There was an error, try again</p>
+                                    : this.renderPlayers()}
+                            </tbody>
                         </table>
                     </div>
                 </div>

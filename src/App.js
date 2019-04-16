@@ -4,7 +4,7 @@ import './App.css'
 import Header from './header/header'
 import RegistrationRoutes from './routes/RegistrationRoutes';
 import LoginRoutes from './routes/LoginRoutes'
-import ProfilePage from './ProfilePage/ProfilePage'
+import ProfileRoutes from './routes/ProfileRoutes'
 import PlayerList from './PlayerList/PlayerList'
 import FavoritesList from './FavoritesList/FavoritesList'
 import NotFoundPage from './NotFoundPage/NotFoundPage'
@@ -30,7 +30,7 @@ class App extends Component {
             />
             <Route 
               path='/profile'
-              component={ProfilePage}
+              component={ProfileRoutes}
             />
             <Route 
               path='/favorites'
