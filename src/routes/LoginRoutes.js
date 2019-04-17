@@ -12,7 +12,7 @@ export default class LoginRoutes extends Component {
 
     handleLoginSuccess = () => {
         const { location, history } = this.props
-        const destination = (location.state || {}).form || '/'
+        const destination = (location.state || {}).form || '/list'
         history.push(destination)
         window.location.reload();
     }

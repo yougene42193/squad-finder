@@ -42,6 +42,20 @@ const ApiService = {
                 ? res.json().then(e => Promise.reject(e))
                 : res.json()
             )
+   },
+   updateUser(userId) {
+        return fetch(`${config.API_ENDPOINT}/profiles/${userId}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(userId)
+        })
+            .then(res =>
+                (!res.ok)
+                ? res.json().then(e => Promise.reject(e))
+                : res.json()    
+            )
    }
 }
 

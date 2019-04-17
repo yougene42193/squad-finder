@@ -1,8 +1,8 @@
 import React from 'react';
 import ApiService from '../services/api-service'
-import './ProfilePage.css';
+import './createProfile.css';
 
-export default class ProfilePage extends React.Component {
+export default class CreateProfile extends React.Component {
     static defaultProps = {
         onProfileSuccess: () => {}
     }
@@ -15,7 +15,7 @@ export default class ProfilePage extends React.Component {
         const { profile_name, platform, game, region, playstyle } = e.target
 
         this.setState({ error: null })
-        ApiService.updateUser({
+        ApiService.postUser({
             profile_name: profile_name.value,
             platform: platform.value,
             game: game.value,
@@ -34,65 +34,7 @@ export default class ProfilePage extends React.Component {
                 this.setState({ error: res.error })
             })  
     }
-/*
-    constructor(props) {
-        super(props);
-        this.state = {
-            username: '',
-            platform: '',
-            game: '',
-            region: '',
-            playstyle: ''
-        }
 
-        this.handleUserChange = this.handleUserChange.bind(this);
-        this.handlePlatformChange = this.handlePlatformChange.bind(this);
-        this.handleGameChange = this.handleGameChange.bind(this);
-        this.handleRegionChange = this.handleRegionChange.bind(this);
-        this.handlePlaystyleChange = this.handlePlaystyleChange.bind(this);
-    }
-    state = {
-        selected: null,
-        hasError: false
-    };
-
-    handleUserChange(event) {
-        this.setState({
-            username: event.target.value,
-        })
-    }
-
-    handlePlatformChange(event) {
-        this.setState({
-            platform: event.target.value,
-        })
-    }
-
-    handleGameChange(event) {
-        this.setState({
-            game: event.target.value,
-        })
-    }
-
-    handleRegionChange(event) {
-        this.setState({
-            region: event.target.value,
-        })
-    }
-
-    handlePlaystyleChange(event) {
-        this.setState({
-            playstyle: event.target.value
-        })
-    }
-    
-    handleClick() {
-        this.setState({ hasError: false });
-        if (!this.state.selected) {
-            this.setState({ hasError: true })
-        }
-    }
-*/
     render() {
         return(
             <section className="profile-page">
@@ -100,7 +42,7 @@ export default class ProfilePage extends React.Component {
                     <form 
                         className="profile-form"
                         onSubmit={this.handleSubmit}>
-                        <h2 className="profile">Edit Profile</h2>
+                        <h2 className="profile">Create Profile</h2>
                         <div className="username">
                             <label>Profile Name: </label>
                             <input type="text" name="profile_name" required />

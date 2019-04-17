@@ -48,7 +48,7 @@ export default class Header extends React.Component {
                         : this.renderLoginLink()}
                 </nav>
                 <header>
-                    <h1><Link to='/'>Squad Finder</Link></h1>
+                    <h1><Link to='/list'>Squad Finder</Link></h1>
                 </header>
             </section>
         )

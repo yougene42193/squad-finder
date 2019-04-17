@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css'
 import Header from './header/header'
+import landingPage from './landingPage/landingPage'
 import RegistrationRoutes from './routes/RegistrationRoutes';
 import LoginRoutes from './routes/LoginRoutes'
 import ProfileRoutes from './routes/ProfileRoutes'
 import PlayerList from './PlayerList/PlayerList'
 import FavoritesList from './FavoritesList/FavoritesList'
 import NotFoundPage from './NotFoundPage/NotFoundPage'
+import CreateProfileRoutes from './routes/createProfileRoutes'
 
 class App extends Component {
   render() {
@@ -18,15 +20,23 @@ class App extends Component {
           <Switch>
             <Route 
               exact path='/'
-              component={PlayerList}
+              component={landingPage}
             />
             <Route 
               path='/register'
               component={RegistrationRoutes}
             />
             <Route 
+              path='/create'
+              component={CreateProfileRoutes}
+            />
+            <Route 
               path='/login'
               component={LoginRoutes}
+            />
+            <Route 
+              path='/list'
+              component={PlayerList}
             />
             <Route 
               path='/profile'
