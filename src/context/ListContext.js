@@ -6,6 +6,7 @@ const PlayerListContext = React.createContext({
     setError: () => {},
     clearError: () => {},
     setPlayerList: () => {},
+    addUser: () => {},
 })
 export default PlayerListContext
 
@@ -14,6 +15,17 @@ export class PlayerListProvider extends Component {
         playerList: [],
         error: null,
     };
+
+    setUsers = users => {
+        this.setState({ users })
+    }
+
+    addUser = user => {
+        this.setUsers([
+            ...this.state.users,
+            user
+        ])
+    }
 
     setPlayerList = playerList => {
         this.setState({ playerList })
@@ -35,6 +47,8 @@ export class PlayerListProvider extends Component {
             setError: this.setError,
             clearError: this.clearError,
             setPlayerList: this.setPlayerList,
+            setUsers: this.setUsers,
+            addUser: this.addUser,
         }
         return (
             <PlayerListContext.Provider value={value}>

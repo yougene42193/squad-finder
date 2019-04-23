@@ -15,7 +15,7 @@ export default class ProfilePage extends React.Component {
         const { profile_name, platform, game, region, playstyle } = e.target
 
         this.setState({ error: null })
-        ApiService.updateUser({
+        ApiService.postUser({
             profile_name: profile_name.value,
             platform: platform.value,
             game: game.value,
@@ -100,7 +100,7 @@ export default class ProfilePage extends React.Component {
                     <form 
                         className="profile-form"
                         onSubmit={this.handleSubmit}>
-                        <h2 className="profile">Edit Profile</h2>
+                        <h2 className="profile">Profile</h2>
                         <div className="username">
                             <label>Profile Name: </label>
                             <input type="text" name="profile_name" required />

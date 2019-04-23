@@ -1,36 +1,58 @@
 import React from 'react'
 
 export default class Filters extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            platformFilter: ""
+            /*gameFilter: "",
+            regionFilter: "",
+            playstyleFilter: "" */
+        }
+    }
+
+    handleChange = (e) => {
+        this.setState({
+            platformFilter: e.target.value
+            /*gameFilter: e.target.value,
+            regionFilter: e.target.value,
+            playstyleFilter: e.target.value */
+        })
+    }
+
     render() {
         return (
             <div className="filters">
                     <h2>Filters</h2>
-                    <select className="platforms">
+                    <select className="platforms" 
+                        value={this.state.platformFilter}
+                        onChange={this.handleChange}
+                    >
                         <option>-Filter Platform-</option>
-                        <option>Xbox One</option>
-                        <option>Playstation 4</option>
-                        <option>PC</option>
+                        <option value="Xbox One">Xbox One</option>
+                        <option value="Playstation 4">Playstation 4</option>
+                        <option value="PC">PC</option>
                     </select>
                     <select className="games">
                         <option>-Filter Games-</option>
-                        <option>Apex Legends</option>
-                        <option>COD Blackout</option>
-                        <option>Fortnite</option>
-                        <option>PUBG</option>
+                        <option value="Apex Legends">Apex Legends</option>
+                        <option value="COD Blackout">COD Blackout</option>
+                        <option value="Fortnie">Fortnite</option>
+                        <option value="PUBG">PUBG</option>
                     </select>
                     <select className="regions">
                         <option>-Filter Region-</option>
-                        <option>NA</option>
-                        <option>EU</option>
-                        <option>EUW</option>
-                        <option>AS</option>
-                        <option>BRZ</option>
+                        <option value="NA">NA</option>
+                        <option value="EU">EU</option>
+                        <option value="EUW">EUW</option>
+                        <option value="AS">AS</option>
+                        <option value="BRZ">BRZ</option>
                     </select>
                     <select className="playstyle">
                         <option>-Filter Playstyle-</option>
-                        <option>Casual</option>
-                        <option>Semi-Hardcore</option>
-                        <option>Hardcore</option>
+                        <option value="Casual">Casual</option>
+                        <option value="Semi-Hardcore">Semi-Hardcore</option>
+                        <option value="Hardcore">Hardcore</option>
                     </select>
                     <div className="filter-buttons">
                         <button>Filter</button>
