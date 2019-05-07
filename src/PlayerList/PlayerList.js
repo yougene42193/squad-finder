@@ -3,12 +3,18 @@ import React from 'react';
 import PlayerListContext from '../context/ListContext'
 import ApiService from '../services/api-service'
 import './PlayerList.css';
+import Select from "react-select";
+
+
+// Import React Table
+import ReactTable from "react-table";
+import "react-table/react-table.css";
 
 export default class PlayerList extends React.Component {
     constructor() {
         super()
         this.state = {
-            players: [],
+            data: [],
             filteredPlayers: []
         }
     }
@@ -22,18 +28,39 @@ export default class PlayerList extends React.Component {
             .catch(this.context.setError)
     }
 
-    filterPlayers = (playerFilter) => {
+    onFilteredChangeCustom = (value, accessor) => {
+        let filtered = this.state.filteredPlayers;
+        let insertNewFilter = 1;
+
+        if (filtered.length) {
+            filtered.forEach((filter, i) => {
+                if (filter["id"] === accessor) {
+                    if (value === "" || !value.length) filtered.splice(i, 1);
+                    else filter["value"] = value;
+
+                    insertNewFilter = 0;
+                }
+            })
+        }
+        if (insertNewFilter) {
+            filtered.push({ id: accessor, value: value });
+        }
+
+        this.setState({ filtered: filtered });
+    }
+
+    /*filterPlayers = (playerFilter) => {
         let filteredPlayers = this.state.players
         filteredPlayers = filteredPlayers.filter((player) => {
             let playerName = player.platform.toLowerCase()
         })
-    }
+    }*/
 
     handleAdd = () => {
 
     }
 
-    search = event => {
+    /*search = event => {
         const { playerList = [] } = this.context
         event.preventDefault();
         if (event.target.value) {
@@ -59,7 +86,7 @@ export default class PlayerList extends React.Component {
                 idString: ''
             })
         }
-    }
+    }*/
 
     renderPlayers() {
         const { playerList = [] } = this.context
@@ -75,6 +102,51 @@ export default class PlayerList extends React.Component {
     }
 
     render() {
+        const { playerList = [] } = this.context;
+        return (
+            <section className="player-list">
+                <h2>Player List</h2>
+                <ReactTable 
+                    data={playerList}
+                    filterable
+                    filtered={this.state.filtered}
+                    onFilteredChange={(filtered, column, value) => {
+                        this.onFilteredChangeCustom(value, column.id || column.accessor)
+                    }}
+                    defaultFilterMethod={(filter, row, column) => {
+                        const id = filter.pivotId || filter.id;
+                        if (typeof filter.value === "object") {
+                            return row[id] !== undefined
+                                ? filter.value.indexOf(row[id]) > -1
+                                : true;
+                        } else {
+                            return row[id] !== undefined
+                                ? String(row[id]).indexOf(filter.value) > -1
+                                : true;
+                        }
+                    }}
+                    columns={[
+                        {
+                            Header: "Username",
+                            accessor: "profile_name"
+                        },
+                        {
+                            Header: "Platform",
+                            accessor: "platform"
+                        },
+                        {
+                            Header: "Game",
+                            accessor: "game"
+                        },
+                        {
+                            Header: "Region",
+                            accessor: "region"
+                        },
+                    ]}
+                />
+            </section>
+        )
+        /* 
         const { error } = this.context
         const {
             searchString
@@ -113,5 +185,6 @@ export default class PlayerList extends React.Component {
                 </div>
             </section>
         )
+        */
     }
 }
