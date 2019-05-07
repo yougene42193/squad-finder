@@ -7,7 +7,6 @@ export default class Filters extends React.Component {
             platformFilter: ""
             /*gameFilter: "",
             regionFilter: "",
-            playstyleFilter: "" */
         }
     }
 
@@ -16,7 +15,6 @@ export default class Filters extends React.Component {
             platformFilter: e.target.value
             /*gameFilter: e.target.value,
             regionFilter: e.target.value,
-            playstyleFilter: e.target.value */
         })
     }
 
@@ -47,12 +45,6 @@ export default class Filters extends React.Component {
                         <option value="EUW">EUW</option>
                         <option value="AS">AS</option>
                         <option value="BRZ">BRZ</option>
-                    </select>
-                    <select className="playstyle">
-                        <option>-Filter Playstyle-</option>
-                        <option value="Casual">Casual</option>
-                        <option value="Semi-Hardcore">Semi-Hardcore</option>
-                        <option value="Hardcore">Hardcore</option>
                     </select>
                     <div className="filter-buttons">
                         <button>Filter</button>

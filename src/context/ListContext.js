@@ -26,7 +26,10 @@ export class PlayerListProvider extends Component {
             user
         ])
     }
-
+    setCurrentUser = user => {
+        this.setState({ user })
+    }
+    
     setPlayerList = playerList => {
         this.setState({ playerList })
     }

@@ -11,7 +11,7 @@ export default class ProfileRoutes extends Component {
 
     handleProfileSuccess = user => {
         const { history } = this.props
-        history.push('/')
+        history.push('/list')
     }
 
     render() {

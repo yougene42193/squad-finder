@@ -12,7 +12,7 @@ export default class CreateProfile extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        const { profile_name, platform, game, region, playstyle } = e.target
+        const { profile_name, platform, game, region } = e.target
 
         this.setState({ error: null })
         ApiService.postUser({
@@ -20,14 +20,12 @@ export default class CreateProfile extends React.Component {
             platform: platform.value,
             game: game.value,
             region: region.value,
-            playstyle: playstyle.value,
         })
             .then(user => {
                 profile_name.value = ''
                 platform.value = ''
                 game.value = ''
                 region.value = ''
-                playstyle.value = ''
                 this.props.onProfileSuccess()
             })
             .catch(res => {
@@ -75,15 +73,6 @@ export default class CreateProfile extends React.Component {
                                 <option value='EUW'>EUW</option>
                                 <option value='AS'>AS</option>
                                 <option value='BRZ'>BRZ</option>
-                            </select>
-                        </div>
-                        <div className="playstyle">
-                            <label>Playstyle: </label>
-                            <select name="playstyle" required>
-                                <option value=''>-Select Playstyle-</option>
-                                <option value='Casual'>Casual</option>
-                                <option value='Semi-Hardcore'>Semi-Hardcore</option>
-                                <option value='Hardcore'>Hardcore</option>
                             </select>
                         </div>
                         <button type="submit">Confirm</button>

@@ -6,7 +6,7 @@ import './FavoritesList.css';
 
 export default class FavoritesList extends React.Component {
     static defaultProps = {
-        onDeleteNote: () => {},
+        onDeleteFavorite: () => {},
     }
 
     static contextType = ListContext
@@ -22,24 +22,7 @@ export default class FavoritesList extends React.Component {
         e.preventDefault()
         const profileId = this.props.id
     
-        fetch(`${config.API_ENDPOINT}/api/favorites/${profileId}`, {
-          method: 'DELETE',
-          headers: {
-            'content-type': 'application/json'
-          },
-        })
-          .then(res => {
-            if (!res.ok)
-              return res.json().then(e => Promise.reject(e))
-              window.location.reload();
-          })
-          .then(() => {
-            this.context.deleteNote(profileId)
-            this.props.onDeleteNote(profileId)
-          })
-          .catch(error => {
-            console.error({ error })
-          })
+        ApiService.deleteFavorite(profileId)
       }
 
     renderFavorites() {
@@ -47,10 +30,6 @@ export default class FavoritesList extends React.Component {
         return playerList.map(player =>
             <tr className="list-item" key={player.id}>
                 <td>{player.profile_name}</td>
-                <td>{player.platform}</td>
-                <td>{player.game}</td>
-                <td>{player.region}</td>
-                <td>{player.playstyle}</td>
                 <td>
                     <button 
                         type="delete" 
@@ -72,10 +51,6 @@ export default class FavoritesList extends React.Component {
                         <thead>
                             <tr>
                                 <th>Username</th>
-                                <th>Platform</th>
-                                <th>Game</th>
-                                <th>Region</th>
-                                <th>Playstyle</th>
                                 <th> </th>
                             </tr>
                         </thead>

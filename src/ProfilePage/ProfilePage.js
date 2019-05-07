@@ -9,90 +9,30 @@ export default class ProfilePage extends React.Component {
 
     state = { error: null }
 
-
+  
     handleSubmit = e => {
         e.preventDefault()
-        const { profile_name, platform, game, region, playstyle } = e.target
+        const { profile_name, platform, game, region } = e.target
 
         this.setState({ error: null })
-        ApiService.postUser({
+        ApiService.updateUser({
             profile_name: profile_name.value,
             platform: platform.value,
             game: game.value,
             region: region.value,
-            playstyle: playstyle.value,
         })
             .then(user => {
                 profile_name.value = ''
                 platform.value = ''
                 game.value = ''
                 region.value = ''
-                playstyle.value = ''
                 this.props.onProfileSuccess()
             })
             .catch(res => {
                 this.setState({ error: res.error })
             })  
     }
-/*
-    constructor(props) {
-        super(props);
-        this.state = {
-            username: '',
-            platform: '',
-            game: '',
-            region: '',
-            playstyle: ''
-        }
 
-        this.handleUserChange = this.handleUserChange.bind(this);
-        this.handlePlatformChange = this.handlePlatformChange.bind(this);
-        this.handleGameChange = this.handleGameChange.bind(this);
-        this.handleRegionChange = this.handleRegionChange.bind(this);
-        this.handlePlaystyleChange = this.handlePlaystyleChange.bind(this);
-    }
-    state = {
-        selected: null,
-        hasError: false
-    };
-
-    handleUserChange(event) {
-        this.setState({
-            username: event.target.value,
-        })
-    }
-
-    handlePlatformChange(event) {
-        this.setState({
-            platform: event.target.value,
-        })
-    }
-
-    handleGameChange(event) {
-        this.setState({
-            game: event.target.value,
-        })
-    }
-
-    handleRegionChange(event) {
-        this.setState({
-            region: event.target.value,
-        })
-    }
-
-    handlePlaystyleChange(event) {
-        this.setState({
-            playstyle: event.target.value
-        })
-    }
-    
-    handleClick() {
-        this.setState({ hasError: false });
-        if (!this.state.selected) {
-            this.setState({ hasError: true })
-        }
-    }
-*/
     render() {
         return(
             <section className="profile-page">
@@ -133,15 +73,6 @@ export default class ProfilePage extends React.Component {
                                 <option value='EUW'>EUW</option>
                                 <option value='AS'>AS</option>
                                 <option value='BRZ'>BRZ</option>
-                            </select>
-                        </div>
-                        <div className="playstyle">
-                            <label>Playstyle: </label>
-                            <select name="playstyle" required>
-                                <option value=''>-Select Playstyle-</option>
-                                <option value='Casual'>Casual</option>
-                                <option value='Semi-Hardcore'>Semi-Hardcore</option>
-                                <option value='Hardcore'>Hardcore</option>
                             </select>
                         </div>
                         <button type="submit">Confirm</button>
