@@ -40,7 +40,7 @@ export default class Header extends React.Component {
 
     render() {
         return (
-            <section className="header">
+            <section className="top-header">
                 <nav role="navigation">
                     {/* Swap the render Links when complete */}
                     {TokenService.hasAuthToken()

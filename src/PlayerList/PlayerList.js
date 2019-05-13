@@ -32,7 +32,7 @@ export default class PlayerList extends React.Component {
         let filtered = this.state.filteredPlayers;
         let insertNewFilter = 1;
 
-        if (filtered.length) {
+        if (filtered.length > 0) {
             filtered.forEach((filter, i) => {
                 if (filter["id"] === accessor) {
                     if (value === "" || !value.length) filtered.splice(i, 1);
@@ -108,6 +108,7 @@ export default class PlayerList extends React.Component {
                 <h2>Player List</h2>
                 <ReactTable 
                     data={playerList}
+                    noDataText="There was an error, try again"
                     filterable
                     filtered={this.state.filtered}
                     onFilteredChange={(filtered, column, value) => {
@@ -132,17 +133,53 @@ export default class PlayerList extends React.Component {
                         },
                         {
                             Header: "Platform",
-                            accessor: "platform"
+                            accessor: "platform",
+                            Filter: ({ filter, onChange }) =>
+                                <select
+                                    onChange={event => onChange(event.target.value)}
+                                    style={{ width: "100%" }}
+                                    value={filter ? filter.value : "all"}
+                                >
+                                    <option value="">All</option>
+                                    <option value="Xbox One">Xbox One</option>
+                                    <option value="Playstation 4">Playstation 4</option>
+                                    <option value="PC">PC</option>
+                                </select>
                         },
                         {
                             Header: "Game",
-                            accessor: "game"
+                            accessor: "game",
+                            Filter: ({ filter, onChange }) =>
+                                <select
+                                    onChange={event => onChange(event.target.value)}
+                                    style={{ width: "100%" }}
+                                    value={filter ? filter.value : "all"}
+                                >
+                                    <option value="">All</option>
+                                    <option value="Apex Legends">Apex Legends</option>
+                                    <option value="Fortnite">Fortnite</option>
+                                    <option value="COD Blackout">COD Blackout</option>
+                                    <option value="PUBG">PUBG</option>
+                                </select>
                         },
                         {
                             Header: "Region",
-                            accessor: "region"
+                            accessor: "region",
+                            Filter: ({ filter, onChange }) =>
+                                <select
+                                    onChange={event => onChange(event.target.value)}
+                                    style={{ width: "100%" }}
+                                    value={filter ? filter.value : "all"}
+                                >
+                                    <option value="">All</option>
+                                    <option value="NA">NA</option>
+                                    <option value="EU">EU</option>
+                                    <option value="AS">AS</option>
+                                    <option value="BRZ">BRZ</option>
+                                </select>
                         },
                     ]}
+                    defaultPageSize={10}
                 />
             </section>
         )

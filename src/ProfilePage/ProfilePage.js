@@ -70,7 +70,6 @@ export default class ProfilePage extends React.Component {
                                 <option value=''>-Select Region-</option>
                                 <option value='NA'>NA</option>
                                 <option value='EU'>EU</option>
-                                <option value='EUW'>EUW</option>
                                 <option value='AS'>AS</option>
                                 <option value='BRZ'>BRZ</option>
                             </select>
