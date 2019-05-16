@@ -17,7 +17,7 @@ export default class ProfileRoutes extends Component {
     render() {
         return (
             <Section className="ProfilePage">
-                <h2>Profile</h2>
+            <h2>Create Profile</h2>
                 <ProfilePage 
                     onProfileSuccess={this.handleProfileSuccess}
                 />

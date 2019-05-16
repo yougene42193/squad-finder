@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Aldrich|Orbitron:700|Sarpanch:900');
+
 body {
   margin: 0;
   padding: 0;
@@ -6,9 +8,31 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(41, 41, 41);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+h1 {
+  font-family: 'Sarpanch', sans-serif;
+  font-size: 50px;
+
+}
+
+h2 {
+  font-family: 'Orbitron', sans-serif;
+  color: rgb(143, 143, 143);
+}
+
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-size: 34px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
 }

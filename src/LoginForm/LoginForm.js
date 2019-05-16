@@ -62,7 +62,7 @@ export default class LoginForm extends React.Component {
                                 id='login-password'>
                             </Input>
                         </div>
-                        <Button type="submit">Log in</Button>
+                        <Button className="login-submit" type="submit">Log in</Button>
                     </form>
                 </fieldset>
             </section>

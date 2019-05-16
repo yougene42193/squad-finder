@@ -59,7 +59,7 @@ export default class RegistrationForm extends React.Component {
                                 id='register-password'>
                             </Input>
                         </div>
-                        <Button type="submit">Register</Button>
+                        <Button className="register-submit"type="submit">Register</Button>
                     </form>
                 </fieldset>
             </section>

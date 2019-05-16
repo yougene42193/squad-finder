@@ -12,9 +12,9 @@ export default class Header extends React.Component {
     renderLogoutLink() {
         return (
             <div className='header-logged-in'>
-                <li><Link to='/profile'>Profile</Link></li>
-                <li><Link to='/favorites'>Favorites</Link></li>
+                <li><Link className="nav-header" to='/profile'>Profile</Link></li>
                 <li><Link
+                    className="nav-header"
                     onClick={this.handleLogoutClick}
                     to='/register'>
                     Logout
@@ -27,10 +27,12 @@ export default class Header extends React.Component {
         return (
             <div className='header-not-logged-in'>
                 <li><Link
+                    className="nav-header"
                     to='/register'>
                     Register    
                 </Link></li>
                 <li><Link
+                    className="nav-header"
                     to='/login'>
                     Log in    
                 </Link></li>

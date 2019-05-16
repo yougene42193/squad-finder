@@ -8,7 +8,6 @@ import Select from "react-select";
 
 // Import React Table
 import ReactTable from "react-table";
-import "react-table/react-table.css";
 
 export default class PlayerList extends React.Component {
     constructor() {
@@ -96,7 +95,6 @@ export default class PlayerList extends React.Component {
                 <td value={player.platform}>{player.platform}</td>
                 <td value={player.game}>{player.game}</td>
                 <td value={player.region}>{player.region}</td>
-                <td><a href="/">Add +</a></td>
             </tr>
         )
     }
@@ -108,7 +106,7 @@ export default class PlayerList extends React.Component {
                 <h2>Player List</h2>
                 <ReactTable 
                     data={playerList}
-                    noDataText="There was an error, try again"
+                    noDataText="No results, try again"
                     filterable
                     filtered={this.state.filtered}
                     onFilteredChange={(filtered, column, value) => {
@@ -122,7 +120,7 @@ export default class PlayerList extends React.Component {
                                 : true;
                         } else {
                             return row[id] !== undefined
-                                ? String(row[id]).indexOf(filter.value) > -1
+                                ? String(row[id].toLowerCase()).indexOf(filter.value.toLowerCase()) > -1
                                 : true;
                         }
                     }}
