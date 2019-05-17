@@ -1,8 +1,21 @@
 import React from 'react';
+import Popup from '../popup/popup';
+import { Link } from 'react-router-dom';
 import ApiService from '../services/api-service'
 import './ProfilePage.css';
 
 export default class ProfilePage extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { showPop: false };
+    }
+
+    togglePopup() {
+        this.setState({
+            showPopup: !this.state.showPopup
+        })
+    }
+
     static defaultProps = {
         onProfileSuccess: () => {}
     }
@@ -73,7 +86,14 @@ export default class ProfilePage extends React.Component {
                                 <option value='BRZ'>BRZ</option>
                             </select>
                         </div>
-                        <button className="profile-confirm"type="submit">Confirm</button>
+                        <button className="profile-confirm"type="submit" onClick={this.togglePopup.bind(this)}><Link to='/list'>Confirm</Link></button>
+                        {this.state.showPopup ?
+                            <Popup 
+                                text='Success'
+                                closePopup={this.togglePopup.bind(this)}
+                            />
+                            : null
+                        }
                     </form>
                 </fieldset>
             </section>

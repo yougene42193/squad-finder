@@ -17,6 +17,14 @@ h1 {
     padding-bottom: 5px;
 }
 
+.nav-header:link {
+    color: black;
+}
+
+.nav-header:active {
+    border-bottom: 5px solid black;
+}
+
 a:visited {
     color: rgb(95, 179, 0);
 
@@ -33,7 +41,7 @@ a:active {
 }
 
 a:link {
-    color: black;
+    color: rgb(95, 179, 0);
     text-decoration: none;
 }
 
