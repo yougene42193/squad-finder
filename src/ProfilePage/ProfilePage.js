@@ -39,10 +39,11 @@ export default class ProfilePage extends React.Component {
                 platform.value = ''
                 game.value = ''
                 region.value = ''
+                this.setState.showPopup = true
                 this.props.onProfileSuccess()
             })
             .catch(res => {
-                this.setState({ error: res.error })
+                this.setState({ error: res.error, showPopup: false })
             })  
     }
 
@@ -86,7 +87,7 @@ export default class ProfilePage extends React.Component {
                                 <option value='BRZ'>BRZ</option>
                             </select>
                         </div>
-                        <button className="profile-confirm"type="submit" onClick={this.togglePopup.bind(this)}><Link to='/list'>Confirm</Link></button>
+                        <button className="profile-confirm"type="submit" onClick={this.togglePopup.bind(this)}>Confirm</button>
                         {this.state.showPopup ?
                             <Popup 
                                 text='Success'
