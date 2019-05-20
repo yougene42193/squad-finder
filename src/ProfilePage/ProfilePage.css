@@ -2,7 +2,7 @@ select {
     font-family: 'Aldrich', sans-serif;
     padding: 5px 10px;
     border: 2px solid rgb(95, 179, 0);
-    background: gray;
+    background: rgb(163, 163, 163);
     font-size: 16px;
 }
 
