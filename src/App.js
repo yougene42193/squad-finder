@@ -7,9 +7,7 @@ import RegistrationRoutes from './routes/RegistrationRoutes';
 import LoginRoutes from './routes/LoginRoutes'
 import ProfileRoutes from './routes/ProfileRoutes'
 import PlayerList from './PlayerList/PlayerList'
-import FavoritesList from './FavoritesList/FavoritesList'
 import NotFoundPage from './NotFoundPage/NotFoundPage'
-import CreateProfileRoutes from './routes/createProfileRoutes'
 
 class App extends Component {
   render() {
@@ -27,10 +25,6 @@ class App extends Component {
               component={RegistrationRoutes}
             />
             <Route 
-              path='/create'
-              component={CreateProfileRoutes}
-            />
-            <Route 
               path='/login'
               component={LoginRoutes}
             />
@@ -41,10 +35,6 @@ class App extends Component {
             <Route 
               path='/profile'
               component={ProfileRoutes}
-            />
-            <Route 
-              path='/favorites'
-              component={FavoritesList}
             />
             <Route 
               component={NotFoundPage}
