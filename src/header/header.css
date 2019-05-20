@@ -7,22 +7,29 @@ h1 {
     padding-bottom: 10px;
 }
 
+.nav-header {
+    transition: 0.3s;
+}
+
 .nav-header:visited {
     color: black;
 
-}
-
-.nav-header:hover {
-    border-bottom: 3px solid black;
-    padding-bottom: 5px;
 }
 
 .nav-header:link {
     color: black;
 }
 
+.nav-header:hover {
+    border-bottom: 5px solid black;
+}
+
 .nav-header:active {
     border-bottom: 5px solid black;
+}
+
+a {
+    transition: 0.5s;
 }
 
 a:visited {
@@ -37,7 +44,6 @@ a:hover {
 
 a:active {
     color: rgb(143, 143, 143);
-
 }
 
 a:link {

@@ -38,6 +38,10 @@ label, option {
     margin: 10px;
 }
 
+button {
+    transition: .5s;
+}
+
 button:hover {
     background-color: rgb(143, 143, 143);;
 }
