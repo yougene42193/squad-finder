@@ -1,7 +1,6 @@
 import React from 'react';
 import ListContext from '../context/ListContext'
 import ApiService from '../services/api-service'
-import config from '../config'
 import './FavoritesList.css';
 
 export default class FavoritesList extends React.Component {

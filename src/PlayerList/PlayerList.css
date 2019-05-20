@@ -407,10 +407,13 @@
   user-select: none;
 }
 
-
 .-pagination {
   font-family: 'Orbitron', sans-serif;
   background-color: rgb(95, 179, 0);
+}
+
+.-pageSizeOptions {
+  display: none;
 }
 
 .-btn {

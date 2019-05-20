@@ -1,6 +1,5 @@
 import React from 'react';
 import Popup from '../popup/popup';
-import { Link } from 'react-router-dom';
 import ApiService from '../services/api-service'
 import './ProfilePage.css';
 
