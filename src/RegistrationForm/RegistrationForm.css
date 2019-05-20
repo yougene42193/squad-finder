@@ -1,3 +1,16 @@
+.register-form {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.register-form {
+    line-height: 1.5;
+}
+
+.register-form p {
+    font-size: 20px;
+}
+
 .register-submit {
     cursor: pointer;
     background-color: rgb(95, 179, 0);

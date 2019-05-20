@@ -1,5 +1,6 @@
 {
     "version": 2,
+    "alias": "yougene42193-squad-finder",
     "name": "squad-finder",
     "routes": [
         {

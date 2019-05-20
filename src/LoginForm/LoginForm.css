@@ -2,6 +2,19 @@ form {
     font-family: 'Aldrich', sans-serif;
 }
 
+.login-form {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.login-form {
+    line-height: 1.5;
+}
+
+.login-form p {
+    font-size: 20px;
+}
+
 .login-submit {
     cursor: pointer;
     background-color: rgb(95, 179, 0);
