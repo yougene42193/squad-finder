@@ -19,7 +19,7 @@ export default class ProfilePage extends React.Component {
         onProfileSuccess: () => {}
     }
 
-    state = { error: null }
+    state = { error: null, success: null }
 
 
     handleSubmit = e => {
@@ -33,12 +33,12 @@ export default class ProfilePage extends React.Component {
             game: game.value,
             region: region.value,
         })
-            .then(user => {
+            .then(res => {
                 profile_name.value = ''
                 platform.value = ''
                 game.value = ''
                 region.value = ''
-                this.setState.showPopup = true
+                this.setState({ success: res.success })
                 this.props.onProfileSuccess()
             })
             .catch(res => {
@@ -47,12 +47,14 @@ export default class ProfilePage extends React.Component {
     }
 
     render() {
+        const { success } = this.state
         return(
             <section className="profile-page">
                 <fieldset>
                     <form 
                         className="profile-form"
                         onSubmit={this.handleSubmit}>
+                        <div className="success">{success && <p className="error-msg">Success</p>}</div>
                         <div className="username">
                             <label>Username: </label>
                             <input type="text" name="profile_name" required />

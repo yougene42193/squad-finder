@@ -2,7 +2,6 @@ import TokenService from '../services/token-service'
 import config from '../config';
 
 const ApiService = {
-    /* Get player list */
     getUsers() {
         return fetch(`${config.API_ENDPOINT}/profiles`, {
             headers: {
@@ -15,7 +14,6 @@ const ApiService = {
             : res.json()
             )
     },
-    /* get user */
     getUser(userId) {
         return fetch(`${config.API_ENDPOINT}/profiles/${userId}`, {
             headers: {
@@ -28,7 +26,6 @@ const ApiService = {
                     : res.json()
             )
     },
-    /*  Post user to list */
     postUser(user) {
         return fetch(`${config.API_ENDPOINT}/profiles`, {
             method: 'POST',

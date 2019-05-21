@@ -16,7 +16,7 @@ export default class Header extends React.Component {
                 <li><Link
                     className="nav-header"
                     onClick={this.handleLogoutClick}
-                    to='/register'>
+                    to='/'>
                     Logout
                 </Link></li>
             </div>
