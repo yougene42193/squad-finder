@@ -13,7 +13,7 @@ Squad Finder helps battle royal players to find other players to group with. Use
 ### Create Profile
 ![create-profile](screenshots/create-profile.JPG)
 ### Profiles List
-![profile-list](screenshots/profile-list.JPG)
+![profile-list](screenshots/player-list.JPG)
 ## API Documentation
 The API can be found at https://github.com/yougene42193/squad-finder-server/
 ### /users 
