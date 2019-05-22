@@ -5,10 +5,15 @@ https://squad-finder.yougene42193.now.sh/
 Squad Finder helps battle royal players to find other players to group with. Users can create an account so they can put their profile into the list of other players. User can view the list and can filter out which games they play, platform and region to make it easier to find the right player for them.
 ## Screenshots
 ### Landing Page
+![landing-page](screenshots/landing-page.JPG)
 ### Registration
+![registration](screenshots/registration-page.JPG)
 ### Login
+![login](screenshots/login-page.JPG)
 ### Create Profile
+![create-profile](screenshots/create-profile.JPG)
 ### Profiles List
+![profile-list](screenshots/player-list.JPG)
 ## API Documentation
 The API can be found at https://github.com/yougene42193/squad-finder-server/
 ### /users 
@@ -20,3 +25,4 @@ The API can be found at https://github.com/yougene42193/squad-finder-server/
 * React
 * CSS
 * NodeJS
+* Enzyme
