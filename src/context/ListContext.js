@@ -31,7 +31,7 @@ export class PlayerListProvider extends Component {
     }
     
     setPlayerList = playerList => {
-        this.setState({ playerList })
+        this.setState({ playerList })  
     }
 
     setError = error => {

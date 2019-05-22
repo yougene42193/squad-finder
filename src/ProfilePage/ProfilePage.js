@@ -1,20 +1,8 @@
 import React from 'react';
-import Popup from '../popup/popup';
 import ApiService from '../services/api-service'
 import './ProfilePage.css';
 
 export default class ProfilePage extends React.Component {
-    /*constructor(props) {
-        super(props);
-        this.state = { showPop: false };
-    }
-
-    togglePopup() {
-        this.setState({
-            showPopup: !this.state.showPopup
-        })
-    }*/
-
     static defaultProps = {
         onProfileSuccess: () => {}
     }
@@ -89,13 +77,6 @@ export default class ProfilePage extends React.Component {
                             </select>
                         </div>
                         <button className="profile-confirm"type="submit">Confirm</button>
-                        {/*{this.state.showPopup ?
-                            <Popup 
-                                text='Success'
-                                closePopup={this.togglePopup.bind(this)}
-                            />
-                            : null
-                        }*/}
                     </form>
                 </fieldset>
             </section>
