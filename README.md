@@ -21,7 +21,6 @@ The API can be found at https://github.com/yougene42193/squad-finder-server/
 ### /profiles
 * GET / gets all of the profiles that have been created by the users.
 * POST / creates a new profile with the requirements of username, platform, game and region. Then lists that profile into the list.
-* GET /:id get a specific profile.
 ## Built With
 * React
 * CSS
