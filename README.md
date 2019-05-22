@@ -25,3 +25,4 @@ The API can be found at https://github.com/yougene42193/squad-finder-server/
 * React
 * CSS
 * NodeJS
+* Enzyme
