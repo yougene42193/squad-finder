@@ -3,10 +3,12 @@
 }
 
 body {
+    max-width: 1080px;
+    margin: 0 auto !important;
+    float: none !important;
     font-size: 20px;
     color: #444;
     text-align: center;
-    background-color: ;
 }
 
 .error-msg {

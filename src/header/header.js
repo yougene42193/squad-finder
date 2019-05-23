@@ -11,31 +11,46 @@ export default class Header extends React.Component {
 
     renderLogoutLink() {
         return (
-            <div className='header-logged-in'>
-                <li><Link className="nav-header" to='/profile'>Profile</Link></li>
-                <li><Link
-                    className="nav-header"
-                    onClick={this.handleLogoutClick}
-                    to='/'>
-                    Logout
-                </Link></li>
+            <div className="loggedin-header">
+                <nav role="navigation">
+            
+                    <div className='header-logged-in'>
+                        <li><Link className="nav-header" to='/profile'>Profile</Link></li>
+                        <li><Link
+                            className="nav-header"
+                            onClick={this.handleLogoutClick}
+                            to='/'>
+                                Logout
+                        </Link></li>
+                    </div>
+                </nav>
+                <header>
+                    <h1><Link to='/list'>Squad Finder</Link></h1>
+                </header>
             </div>
         )
     }
 
     renderLoginLink() {
         return (
-            <div className='header-not-logged-in'>
-                <li><Link
-                    className="nav-header"
-                    to='/register'>
-                    Register    
-                </Link></li>
-                <li><Link
-                    className="nav-header"
-                    to='/login'>
-                    Log in    
-                </Link></li>
+            <div className="loggedout-header">
+                <nav role="navigation">
+                    <div className='header-not-logged-in'>
+                        <li><Link
+                            className="nav-header"
+                            to='/register'>
+                            Register    
+                        </Link></li>
+                        <li><Link
+                            className="nav-header"
+                            to='/login'>
+                                Log in    
+                        </Link></li>
+                    </div>
+                </nav>
+                <header>
+                    <h1><Link to='/'>Squad Finder</Link></h1>
+                </header>
             </div>
         )
     }
@@ -43,15 +58,9 @@ export default class Header extends React.Component {
     render() {
         return (
             <section className="top-header">
-                <nav role="navigation">
-                    {/* Swap the render Links when complete */}
-                    {TokenService.hasAuthToken()
-                        ? this.renderLogoutLink()
-                        : this.renderLoginLink()}
-                </nav>
-                <header>
-                    <h1><Link to='/list'>Squad Finder</Link></h1>
-                </header>
+                {TokenService.hasAuthToken()
+                    ? this.renderLogoutLink()
+                    : this.renderLoginLink()}
             </section>
         )
     }
